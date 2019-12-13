@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 使用 css 或是下面 jq 都可以 */
+        #content>div:first-child {
+            display: block;
+        }
+
+        #content>div:not(:first-child) {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="btns">
+        <input type="button" value="健康新知">
+        <input type="button" value="菸害防制">
+        <input type="button" value="癌症防治">
+        <input type="button" value="慢性病防治">
+    </div>
+    <div id="content">
+        <div>健康新知</div>
+        <div>菸害防制</div>
+        <div>癌症防治</div>
+        <div>慢性病防治</div>
+    </div>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script>
+        $(function(){
+            // $("#content div").eq(0).show();
+            // $("#content div").eq(0).siblings().hide();
+
+            $("#btns input").on("click", function(){
+                let idx = $(this).index();
+                $("#content div").eq(idx).show();
+                $("#content div").eq(idx).siblings().hide();
+            })
+        })
+    </script>
+</body>
+</html>

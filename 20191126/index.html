@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: "微軟正黑體";
+        }
+        #game{
+            width: 500px;
+            height: 500px;
+            background: black;
+            cursor: url(./遊戲素材/cursor2.png)50 50, auto ;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+        }
+        input{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+
+    </div>
+    <input type="button" value="開始遊戲" id="start">
+    <p>分數<span id="score">0</span>分</p>
+    <p>剩餘<span id="sed">0</span>秒</p>
+    <script src="./20191126/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            let score = 0;
+            let sec = 5;
+
+            let zbtimer=0;
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #gallery {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #imgs {
+            height: 300px;
+            width: 900px;
+            position: absolute;
+            transition: left 0.5s;
+            left: 0;
+        }
+
+        #imgs img {
+            width: 300px;
+            height: 300px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- 輪播圖可見範圍 -->
+    <div id="gallery">
+        <!-- 將所有圖片排在一起，使用 left 拖移 div 位置 -->
+        <div id="imgs">
+            <img src="./0104.jpg" alt="">
+            <img src="./0307.jpg" alt="">
+            <img src="./0507.jpg" alt="">
+        </div>
+    </div>
+    <input type="button" value="<" id="prev">
+    <input type="button" value=">" id="next">
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script>
+        $(function(){
+            // 目前第幾張圖
+            let nowImg = 0;
+            
+            // 總共幾張圖
+            let totalImg = $("#imgs").find("img").length;
+            console.log(totalImg);
+
+            $("#next").on("click", function(){
+                if(nowImg < totalImg -1) {
+                    nowImg++;
+                    // left 移動距離為現在圖片 * 每張圖的寬度
+                    let move = nowImg * 300;
+                    $("#imgs").css("left", `-${move}px`);
+                }        
+            })
+
+            $("#prev").on("click", function(){
+                if(nowImg > 0) {
+                    nowImg--;
+                    // left 移動距離為現在圖片 * 每張圖的寬度
+                    let move = nowImg * 300;
+                    $("#imgs").css("left", `-${move}px`);
+                }
+            })
+        })
+    </script>
+</body>
+</html>

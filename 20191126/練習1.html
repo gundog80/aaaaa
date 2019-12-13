@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #gallery {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        #imgs {
+            height: 300px;
+            width: 900px;
+            position: absolute;
+            left: 0;
+        }
+
+        #imgs img {
+            width: 300px;
+            height: 300px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="gallery">
+        <div id="imgs">
+            <img src="./0104.jpg" alt="">
+            <img src="./0307.jpg" alt="">
+            <img src="./0507.jpg" alt="">
+        </div>
+    </div>
+    <input type="button" value="<" id="prev">
+    <input type="button" value=">" id="next">
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        let nowImg = 0;
+        let totalImg = $("#imgs").find("img").length;
+
+        $("#next").on("click", function(){
+            if(nowImg < totalImg -1){
+                nowImg++;
+                let move = nowImg * 300;
+                $("#imgs").animate({left: `-${move+50}px`}, 500).animate({left: `-${move}px`}, 100);
+            }
+        })
+        $("#prev").on("click", function(){
+            if(nowImg > 0){
+                nowImg--;
+                let move = nowImg * 300;
+                console.log(`-${move-50}px`);
+                if(nowImg == 0) {
+                    $("#imgs").animate({left: `50px`}, 500).animate({left: `0px`}, 100);
+                }
+                else {
+                    $("#imgs").animate({left: `-${move-50}px`}, 500).animate({left: `-${move}px`}, 100);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

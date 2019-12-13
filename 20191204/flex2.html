@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1000px;
+            display: flex;
+            background: black;
+        }
+        .item {
+            height: 100px;
+            width: 100px;
+        }
+        .item2 {
+            height: 100px;
+            width: 400px;
+        
+        }
+    </style>
+</head>
+<body>
+    flex-grow 分配剩餘寬度<br>
+    元素的寬度 += 剩餘的寬度 / 所有的 flex-grow 總和 * 該元素的 flex-grow 值
+    <div class="container">
+        <div class="item" style="background: red;"></div>
+        <div class="item" style="background: blue;"></div>
+        <div class="item" style="background: green;"></div>
+    </div>
+    <hr>
+    flex-shrink 寬度超過時的壓縮比例，預設值是 1 <br>
+    總權重為各元素*flex-shrink的總和 400*1+400*1+400*1 = 1200 <br>
+    紅色壓縮為 200(超出的寬度) * 1 (flex-shrink) * 400(寬度) / 1200(權重) = 66 <br>
+    紅色的寬度最後是 400 - 66 = 333
+    
+    <div class="container">
+        <div class="item2" style="background: red; "></div>
+        <div class="item2" style="background: blue; "></div>
+        <div class="item2" style="background: green;"></div>
+    </div>
+</body>
+</html>

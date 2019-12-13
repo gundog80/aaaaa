@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+        .blue {
+            color: blue;
+        }
+        .big {
+            font-size: 100px;
+        }
+        .small {
+            font-size: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="myh1">我是 h1</h1>
+    <h1 id="myh1_2">我是第二個 h1</h1>
+    <h1><a href="#">連結</a></h1>
+    <input type="text" name="" id="mytext">
+    <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" alt="" id="myimg" height="150">
+    <input type="button" value="按鈕" id="mybtn">
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script>
+        // 當文件 ready 時，當讀取完所有的 HTML 時
+        // $(document).ready(function(){
+        // })
+
+        // $(document).ready 簡寫
+        $(function(){
+            // 如果選擇器有不只一個東西，用 .eq() 指定第幾個
+            // .text() 文字，括號裡沒東西是取值，有東西是設值
+            console.log( $("h1").eq(0).text() );
+            $("h1").eq(1).text("Hi");
+
+            // .html() HTML，括號裡沒東西是取值，有東西是設值
+            console.log( $("h1").eq(2).html() );
+            console.log( $("h1").eq(2).text() );
+            $("h1").eq(2).html("<a href='https://google.com'>Google</a>");
+            
+            // .val() 輸入欄位的值，括號裡沒東西是取值，有東西是設值
+            $("#mytext").val("Hello");
+
+            // .attr() 標籤屬性
+            // 括號裡第一個是放屬性名稱，如果有第二個的話，就是改值
+            console.log( $("#myimg").attr("src") );
+            $("#myimg").attr("src", "https://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg");
+
+            // .css() 以行內樣式修改css
+            $("h1").css("color", "red");
+            $("h1").css({ "color": "red", "font-size": "50px" });
+            console.log( $("h1").css("color") );
+
+            // .addClass() 新增 class
+            // 每個要新增的 class 以空白分隔
+            $("h1").eq(0).addClass("blue big");
+
+            // .removeClass() 移除 class
+            // 每個要新增的 class 以空白分隔
+            $("h1").eq(0).removeClass("blue");
+
+            // 使用事件的函式
+            // .事件名稱(function(){})
+            // 只有部分事件有這種寫法
+            $("#mybtn").click(function(){});
+
+            // 使用 .on()
+            // .on(事件名稱, function(){})
+            $("#mybtn").on("click", function(){
+                alert("你好棒");
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div {
+            background: black;
+            height: 100px;
+            width: 100px;
+        }
+        /* 直的手機 */
+        @media (max-width: 576px) {
+            #div {
+                width: 200px;
+            }
+        }
+        /* 橫的手機 */
+        @media (min-width: 576px) {
+            #div {
+                width: 576px;
+            }
+        }
+        /* 平板 */
+        @media (min-width: 768px) {
+            #div {
+                width: 768px;
+            }
+        }
+        /* 電腦 */
+        @media (min-width: 992px) {
+            #div {
+                width: 992px;
+            }
+        }
+        /* 大螢幕電腦 */
+        @media (min-width: 1200px) {
+            #div {
+                width: 1200px;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            #div {
+                background: white;
+            }
+            body {
+                background: black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="div"></div>
+</body>
+</html>

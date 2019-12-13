@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <ul id="ul1">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li class="lili">5</li>
+                <li class="lili">6</li>
+            </ul>
+            <ul id="ul2">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+            <input type="button" value="新增" id="addul3">
+            <ul id="ul3">
+                <li id="abc">ABC</li>
+            </ul>
+        </div>
+    </div>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script>
+        $(function(){
+            // .find() 在裡面找符合指定選擇器的元素
+            let myli = $("#ul1").find("li").eq(2);
+            // .prev() 同一層的上一個東西
+            // .prevAll() 同一層的所有上面的東西，()裡面可以放選擇器篩選
+            // .next() 同一層的下一個東西
+            // .nextAll() 同一層的所有下面的東西，()裡面可以放選擇器篩選
+            myli.prev().css("color", "red");
+            myli.nextAll(".lili").css("color", "red");
+
+            /*********************************************************/
+
+            // .siblings() 同一層的其他東西，()裡面可以放選擇器篩選
+            let myli2 = $("#ul2 li").eq(2);
+            myli2.siblings().css("color", "red");
+
+            /*********************************************************/
+
+            // .prepend() 裡面的第一個東西前插入 html
+            // .append() 裡面的最後一個東西後插入 html
+            $("#addul3").on("click", function(){
+                $("#ul3").prepend("<li>前面新的</li>");
+                $("#ul3").append("<li>後面新的</li>");
+            })
+
+            /*********************************************************/
+
+            // .parent() 上一層
+            // .parents() 所有上層，()裡面可以放選擇器篩選
+            // .closest()  ()裡面可以放選擇器篩選出來最近的一個
+            // $("#ul3").parent().css("background", "blue");
+            // $("#ul3").parents().css("background", "blue");
+            // $("#ul3").parents("div").css("background", "blue");
+            $("#ul3").closest("body").css("background", "blue");
+
+            /*********************************************************/
+
+            $("#abc").on("click", function(){
+                $(this).parent().remove();
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 1000px;
+            height: 500px;
+            background: black;
+            display: flex;
+            /* flex-direction 主軸方向
+            row 左到右
+            row-reverse 右到左
+            column 上到下
+            column-reverse 下到上 */
+            flex-direction: row;
+
+            /* 內容主軸對齊
+            flex-start 主軸起點
+            flex-end 主軸終點
+            center 中間
+            space-between 空格在中間
+            space-around 空格環繞
+            space-evenly 均分空格
+             */
+            justify-content: flex-start;
+
+            /* 內容交錯軸對齊 (單行)
+            flex-start 交錯軸起點
+            flex-end 交錯軸終點
+            center 中間
+            stretch 撐到全滿
+            baseline 以基線對齊
+            */
+            /* align-items: center; */
+
+            /* 內容換行
+            nowrap 不換
+            wrap 換
+            wrap-reverse 換行後顛倒
+            */
+            flex-wrap: wrap;
+
+            /* 內容交錯軸對齊 (多行)
+            flex-start 交錯軸起點
+            flex-end 交錯軸終點
+            center 中間
+            stretch 撐到全滿
+            space-between 空格在中間
+            space-around 空格環繞
+            */
+            align-content: center;
+        }
+        .item {
+            width: 300px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- order 可以改變排序 -->
+        <div class="item" style="background: red; order:1">1</div>
+        <!-- align-self 設定自己的交錯軸對齊方式 -->
+        <div class="item" style="background: blue; align-self: center; order:6">2</div>
+        <div class="item" style="background: green; order:4">3</div>
+        <div class="item" style="background: pink; order:5">4</div>
+        <div class="item" style="background: purple; order:2">5</div>
+        <div class="item" style="background: orange; order:3">6</div>
+    </div>
+</body>
+</html>
