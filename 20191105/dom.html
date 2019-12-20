@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1 id="myh1">MYH1</h1>
+    <ul>
+        <li class="myli">1</li>
+        <li class="myli">2</li>
+        <li class="myli">3</li>
+    </ul>
+    <a href="https://fb.com" class="link" id="fb">Facebook</a>
+    <div id="mydiv">
+        <h1>文字</h1>
+    </div>
+    <div id="mydiv2">
+        <h1>sdfsdf</h1>
+    </div>
+    <script>
+        // document.getElementById() 從ID找元素
+        // .innerText 元素的文字
+        let myh1 = document.getElementById("myh1");
+        console.log(myh1.innerText);
+        // innerText 可以修改文字
+        myh1.innerText = "123";
+
+        // getElementsByClassName() 從class找元素，結果是陣列
+        // innerHTML 元素內的html文字
+        let myli = document.getElementsByClassName("myli");
+        console.log(myli);
+        for(let i=0;i<myli.length;i++){
+            myli[i].innerText=[5,6,7];
+            myli[i].innerHTML = `<h1>${ myli[i].innerText }</h1>`;
+        }
+
+        // querySelectorAll() 從選擇器抓元素，結果是陣列
+        let mylink = document.querySelectorAll("#fb.link");
+        console.log(mylink);
+        // getAttribute 抓標籤屬性
+        // setAttribute 改標籤屬性
+        console.log( mylink[0].getAttribute("href") ); 
+        mylink[0].setAttribute("href", "https://google.com");
+        mylink[0].innerText = "Google";
+        // .style.CSS名稱 = 值
+        // CSS 名稱要改成駝峰式命名
+        // background-color  ==> backgroundColor
+        console.log(mylink[0].style.color);
+        mylink[0].style.color = "red";
+        console.log(mylink[0].style.color);
+        mylink[0].style.backgroundColor = "black";
+
+        // getElementsByTagName 從標籤名稱找東西，結果是陣列
+        // getElement 和 querySelector 類的可以連在一起寫
+        let divh1 = document.getElementById("mydiv").getElementsByTagName("h1");
+        // .remove() 把東西刪掉
+        divh1[0].remove();
+
+        let mydiv2 = document.getElementById("mydiv2");
+        // insertAdjacentHTML 在元素指定的地方插入 html
+        // beforeend, beforebegin, afterend, afterbegin
+        mydiv2.insertAdjacentHTML("beforebegin", "<h1>在開始前面</h1>");
+        mydiv2.insertAdjacentHTML("beforeend", "<h1>在結尾前面</h1>");
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .text-center {
+            text-align: center;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center red" id="myh1">文字</h1>
+    <h2 id="myh2">文字2</h2>
+    <script>
+        let myh1 = document.getElementById("myh1");
+        console.log(myh1.className);    // class 的字串，以空格分隔
+        console.log(myh1.classList);    // class 的陣列
+        myh1.classList.remove("text-center"); // 移除 class
+        myh1.classList.add("text-right");     // 新增 class
+        myh1.classList.replace("red", "blue"); //取代 class
+
+        let myh2 = document.getElementById("myh2");
+        let cls = ["text-center", "red"];
+        myh2.classList.add(...cls); // 如果要一次 add 或 remove 多個，可以用陣列
+    </script>
+</body>
+</html>

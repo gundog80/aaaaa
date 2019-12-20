@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>剩餘 <span id="sec">X</span> 秒</h1>
+    <script>
+        // 先抓取秒數的元素
+        let sec = document.getElementById("sec");
+        // 跳出輸入框
+        let input = prompt("請輸入秒數");
+        // 檢查是不是數字
+        input = parseInt(input);
+        // 如果不是數字，跳出訊息
+        if(isNaN(input)) {
+            alert("不是數字");
+        }
+        // 如果是數字，開始倒數
+        else {
+            // 先改變秒數文字，因為 setInterval 的第一次執行會是一秒後，避免出現 X
+            sec.innerText = input;
+            // 每秒執行一次倒數的動作
+            let timer = setInterval(()=>{
+                // 輸入秒數 -1
+                input--;
+                // 改變文字
+                sec.innerText = input;
+
+                // 如果倒數到0
+                if(input == 0){
+                    // 清除計時器
+                    clearInterval(timer);
+                    // 給 alert 0.01 秒的延遲，等到文字變 0 的時候才跳出來
+                    setTimeout(()=>{
+                        alert("時間到");
+                    }, 10);
+                }
+            }, 1000)
+        }
+    </script>
+</body>
+</html>

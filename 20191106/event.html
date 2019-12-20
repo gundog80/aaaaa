@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="點我" id="btn1">
+    <input type="button" value="點我2" id="btn2" onclick="clickbtn('hi')">
+
+    <table>
+        <tr>
+            <td>AZ-50879613</td>
+            <td>512元</td>
+            <td><input type="button" value="按我" onclick="showdetail(this)"></td>
+        </tr>
+        <tr>
+            <td>AZ-48144474</td>
+            <td>620元</td>
+            <td><input type="button" value="按我" onclick="showdetail(this)"></td>
+        </tr>
+        <tr>
+            <td>FH-55123247</td>
+            <td>823元</td>
+            <td><input type="button" value="按我" onclick="showdetail(this)"></td>
+        </tr>
+        <tr>
+            <td>CA-46240796</td>
+            <td>137元</td>
+            <td><input type="button" value="按我" onclick="showdetail(this)"></td>
+        </tr>
+    </table>
+
+    <p class="myp">123456</p>
+    <p class="myp">123456</p>
+    <p class="myp">123456</p>
+
+    <a href="https://google.com" onclick="block(event)">Google</a>
+
+    <img src="https://images.unsplash.com/photo-1499814375754-a481db8ab6c5" alt="" width="100">
+    <img src="https://images.unsplash.com/photo-1500100586562-f75ff6540087" alt="" width="100">
+    <img src="https://images.unsplash.com/photo-1498603054295-8198c516eedc" alt="" width="100">
+
+    <input type="text" name="" id="mytext">
+    <script>
+        let btn1 = document.getElementById("btn1");
+        btn1.onclick = () => {
+            alert("你按了按鈕，你好棒");
+        }
+
+        // 東西.on事件只能綁定一個東西
+        // 所以 class 要用迴圈綁定
+        let myp = document.getElementsByClassName("myp");
+        for(let i=0;i<myp.length;i++){
+            myp[i].onclick = () => {
+                alert(myp[i].innerText);
+            }
+        }
+
+        let clickbtn = (msg) => {
+            alert(msg);
+        }
+
+        let showdetail = (elem) => {
+            // input 的上一層 td 的上一層 tr 裡面找 td 的第 二個就是價格
+            // parentElement 代表上一層
+            // previousElementSibling 代表同一層的上一個東西
+            // nextElementSibling 代表同一層的下一個東西
+            console.log(elem.parentElement.parentElement.getElementsByTagName("td")[1].innerText);
+            console.log(elem.parentElement.previousElementSibling.innerText);
+        }
+
+        let block = (e) => {
+            // 事件.preventDefault() 可以將事件的預設動作擋下來
+            // 例如 a 標籤的點擊跳頁和表單送出的跳頁
+            e.preventDefault();
+            alert("連結被我擋下來了")
+        }
+        
+        // 當網頁載入完成的事件
+        // window.onload = () => {
+        //     alert("載入完成");
+        // }
+
+        let mytext = document.getElementById("mytext");
+        // onblur 當輸入欄位失去焦點時
+        // onfocus 當點輸入欄位時
+        // onchange 當輸入欄位的 value 改變時
+        mytext.onblur = () => {
+            // .value 可以抓或改輸入欄位的值
+            if(mytext.value !== "abc") {
+                alert("輸入錯誤");
+            }
+        }
+    </script>
+</body>
+</html>
